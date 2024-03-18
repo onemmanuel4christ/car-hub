@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState } from "react";
-
+// import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import SearchManufacturer from "./SearchManufacturer";
-
-const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
+interface SearchBarProps {
+  setManuFacturer: Dispatch<SetStateAction<string>>;
+  setModel: Dispatch<SetStateAction<string>>;
+}
+const SearchButton: React.FC<{ otherClasses: string }> = ({ otherClasses }) => (
   <button type="submit" className={`-ml-3 z-10 ${otherClasses}`}>
     <Image
       src={"/magnifying-glass.svg"}
@@ -17,7 +20,7 @@ const SearchButton = ({ otherClasses }: { otherClasses: string }) => (
   </button>
 );
 
-const SearchBar = ({ setManuFacturer, setModel }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ setManuFacturer, setModel }) => {
   const [searchModel, setSearchModel] = useState("");
   const [searchManufacturer, setSearchManufacturer] = useState("");
 
