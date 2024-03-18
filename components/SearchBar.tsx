@@ -5,7 +5,7 @@ import Image from "next/image";
 import React, { Dispatch, SetStateAction, useState } from "react";
 import SearchManufacturer from "./SearchManufacturer";
 interface SearchBarProps {
-  setManuFacturer: Dispatch<SetStateAction<string>>;
+  setManufacturer: Dispatch<SetStateAction<string>>;
   setModel: Dispatch<SetStateAction<string>>;
 }
 const SearchButton: React.FC<{ otherClasses: string }> = ({ otherClasses }) => (
@@ -20,7 +20,7 @@ const SearchButton: React.FC<{ otherClasses: string }> = ({ otherClasses }) => (
   </button>
 );
 
-const SearchBar: React.FC<SearchBarProps> = ({ setManuFacturer, setModel }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ setManufacturer, setModel }) => {
   const [searchModel, setSearchModel] = useState("");
   const [searchManufacturer, setSearchManufacturer] = useState("");
 
@@ -31,7 +31,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setManuFacturer, setModel }) => {
       return alert("Please provide some input");
 
     setModel(searchModel);
-    setManuFacturer(searchManufacturer);
+    setManufacturer(searchManufacturer);
   };
 
   return (
