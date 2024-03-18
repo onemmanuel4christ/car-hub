@@ -1,3 +1,4 @@
+"use client"
 import { CustomFilterProps } from "@/types";
 import { updateSearchParams } from "@/utils";
 import { Listbox, Transition } from "@headlessui/react";
