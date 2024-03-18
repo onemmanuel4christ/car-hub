@@ -44,7 +44,9 @@ export default function Home() {
     getCars();
   }, [fuel, year, limit, manufacturer, model]);
 
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+  // const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
+    const isDataEmpty =
+      !Array.isArray(allCars) || allCars.length < 1 || !allCars;
   // console.log(allCars);
   return (
     <main className="overflow-hidden">
@@ -93,7 +95,7 @@ export default function Home() {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, No Results</h2>
-            {allCars?.message}
+            {isDataEmpty && <span>No cars found</span>}
           </div>
         )}
       </div>
