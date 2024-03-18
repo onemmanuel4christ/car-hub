@@ -20,7 +20,7 @@ export default function Home() {
   const [model, setModel] = useState("");
 
   const [fuel, setFuel] = useState("");
-  const [year, setYear] = useState(2022);
+   const [year, setYear] = useState<number | string>(2022);
   const [limit, setLimit] = useState(10);
 
   const getCars = async () => {
@@ -28,7 +28,7 @@ export default function Home() {
     try {
       const result = await fetchCars({
         manufacturer: manufacturer || "",
-        year: year || 2022,
+        year: parseInt(year as string) || 2022, // Convert string to number
         fuel: fuel || "",
         limit: limit || 10,
         model: model || "",
@@ -61,7 +61,8 @@ export default function Home() {
             <CustomFilter
               title="year"
               options={yearsOfProduction}
-              setFilter={setYear}
+              // setFilter={setYear}
+              setFilter={(value) => setYear(value)}
             />
           </div>
         </div>
